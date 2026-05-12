@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const API_URL = 'http://localhost:5000/api';
+import { API_URL } from './apiConfig';
+
 
 const COVER_SIZES = [
     { label: 'Book Cover (Print)', value: '1800x2700', dpi: 300, aspect: '2/3' },

@@ -3,6 +3,8 @@ import { useTheme } from './ThemeContext';
 import { useNavigate } from 'react-router-dom';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
+import { API_URL } from './apiConfig';
+
 (window as any).html2canvas = html2canvas;
 
 
@@ -40,7 +42,7 @@ export default function Dashboard() {
 
     const incrementReadCount = async (storyId: number) => {
         try {
-            await fetch(`http://localhost:5000/api/stories/${storyId}/read`, { 
+            await fetch(`${API_URL}/stories/${storyId}/read`, { 
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ username: oldUsername })
@@ -54,7 +56,7 @@ export default function Dashboard() {
 
     const fetchDashboardStats = async () => {
         try {
-            const response = await fetch(`http://localhost:5000/api/user/${oldUsername}/stats`);
+            const response = await fetch(`${API_URL}/user/${oldUsername}/stats`);
             if (response.ok) {
                 const data = await response.json();
                 setStats(data);
@@ -89,7 +91,8 @@ export default function Dashboard() {
 
         const fetchPublishedStories = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/stories/published');
+                const response = await fetch(`${API_URL}/stories/published`);
+
                 if (response.ok) {
                     const data = await response.json();
                     setPublishedStories(data.map((s: any) => ({
@@ -111,7 +114,7 @@ export default function Dashboard() {
 
         const fetchUserSettings = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/api/user/${oldUsername}`);
+                const response = await fetch(`${API_URL}/user/${oldUsername}`);
                 if (response.ok) {
                     const data = await response.json();
                     setSettingsUsername(data.username);
@@ -138,7 +141,8 @@ export default function Dashboard() {
 
     const handleSaveUserSettings = async () => {
         try {
-            const response = await fetch('http://localhost:5000/api/user/update', {
+            const response = await fetch(`${API_URL}/user/update`, {
+
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

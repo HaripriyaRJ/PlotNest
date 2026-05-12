@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { API_URL } from "./apiConfig";
 
 const GENRES = [
     { name: "Adventure", icon: "explore", color: "from-emerald-500 to-teal-600", bg: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&auto=format&fit=crop&q=80" },
@@ -259,8 +260,20 @@ export default function Home() {
     const [activeModal, setActiveModal] = useState<'browse' | 'authors' | 'pricing' | 'about' | 'signin' | null>(null);
     const [selectedFooterLink, setSelectedFooterLink] = useState<string | null>(null);
 
-
-
+    useEffect(() => {
+        const fetchLatestStories = async () => {
+            try {
+                const response = await fetch(`${API_URL}/stories/published`);
+                if (response.ok) {
+                    const data = await response.json();
+                    setLatestStories(data.slice(0, 6));
+                }
+            } catch (err) {
+                console.error("Failed to fetch stories:", err);
+            }
+        };
+        fetchLatestStories();
+    }, []);
 
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
         const card = e.currentTarget;
@@ -285,20 +298,6 @@ export default function Home() {
         }
     };
 
-    useEffect(() => {
-        const fetchLatestStories = async () => {
-            try {
-                const response = await fetch('http://localhost:5000/api/stories/published');
-                if (response.ok) {
-                    const data = await response.json();
-                    setLatestStories(data.slice(0, 6));
-                }
-            } catch (err) {
-                console.error("Failed to fetch stories:", err);
-            }
-        };
-        fetchLatestStories();
-    }, []);
 
     return (
         <div className="bg-[#09090f] text-white antialiased">
@@ -311,6 +310,7 @@ export default function Home() {
                     75%  { transform: scale(1.16) translate(1.5%, -1%); }
                     100% { transform: scale(1.12) translate(0%, 0%); }
                 }
+
                 @keyframes orbFloat {
                     0%, 100% { transform: translateY(0px) scale(1); opacity: 0.18; }
                     50%      { transform: translateY(-24px) scale(1.08); opacity: 0.28; }
