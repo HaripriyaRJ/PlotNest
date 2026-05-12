@@ -1,0 +1,636 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:wght@300;400;500;700;900&display=swap');
+@config "../tailwind.config.js";
+
+@theme {
+    --font-roboto: "Roboto", sans-serif;
+    --font-sans: "Roboto", sans-serif;
+}
+
+@layer base {
+
+    html,
+    body,
+    button,
+    input,
+    textarea,
+    select {
+        font-family: "Roboto", sans-serif !important;
+    }
+
+    /* Prevent browser autofill from making inputs white */
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0px 1000px #13141a inset !important;
+        -webkit-text-fill-color: white !important;
+    }
+}
+
+/* ============================================================
+   LIGHT THEME OVERRIDES
+   Applied when .light-theme is on the dashboard root wrapper.
+   All dark colours flip to clean light equivalents.
+   ============================================================ */
+
+.light-theme {
+    /* Root bg & text */
+    background-color: #f8f9fc !important;
+    color: #0f172a !important;
+}
+
+/* Sidebar - Flip to dark to match landing page */
+.light-theme aside {
+    background-color: #0d0d1a !important;
+    border-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Main content area - Keep light */
+.light-theme main {
+    background-color: #f8f9fc !important;
+}
+
+/* Sidebar Branding & Navigation (Light Theme Dark Sidebar) */
+.light-theme aside h2,
+.light-theme aside .text-white {
+    color: #ffffff !important;
+}
+
+.light-theme aside [class*="text-slate-400"],
+.light-theme aside [class*="text-slate-500"] {
+    color: #94a3b8 !important;
+}
+
+.light-theme aside [class*="hover:text-slate-300"]:hover,
+.light-theme aside [class*="hover:text-red-400"]:hover {
+    color: #ffffff !important;
+}
+
+/* Nav item active state in dark sidebar (light theme) */
+.light-theme aside [class*="bg-indigo-500/15"] {
+    background-color: rgba(99, 102, 241, 0.15) !important;
+}
+
+.light-theme aside [class*="text-indigo-300"],
+.light-theme aside [class*="text-indigo-400"] {
+    color: #a5b4fc !important;
+}
+
+/* User card at bottom of dark sidebar (light theme) */
+.light-theme aside [class*="bg-white/[0.05]"] {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Header in main content should remain light-friendly */
+.light-theme header {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    border-color: #e2e8f0 !important;
+}
+
+/* Sticky headers / status bars in main area */
+.light-theme .sticky {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    border-color: #e2e8f0 !important;
+}
+
+/* All glass cards and panels that use white/opacity in main light area */
+.light-theme main [class*="bg-white/"] {
+    background-color: #ffffff !important;
+}
+
+/* Dark bg panels in main light area flip to white */
+.light-theme main [class*="bg-\\[\\#09090f\\]"],
+.light-theme main [class*="bg-\\[\\#0d0d1a\\]"] {
+    background-color: #ffffff !important;
+}
+
+/* White/opacity borders in main light area → slate borders */
+.light-theme main [class*="border-white/"] {
+    border-color: #e2e8f0 !important;
+}
+
+/* Text colors in main area */
+.light-theme main [class*="text-white"] {
+    color: #0f172a !important;
+}
+
+.light-theme main [class*="text-slate-300"]:not([class*="text-slate-30"]) {
+    color: #475569 !important;
+}
+
+.light-theme main [class*="text-slate-400"] {
+    color: #64748b !important;
+}
+
+.light-theme main [class*="text-slate-500"] {
+    color: #475569 !important;
+}
+
+/* Inputs in main area */
+.light-theme main input:not([type="range"]),
+.light-theme main textarea {
+    background-color: #ffffff !important;
+    border-color: #e2e8f0 !important;
+    color: #0f172a !important;
+}
+
+.light-theme main input:-webkit-autofill,
+.light-theme main input:-webkit-autofill:hover,
+.light-theme main input:-webkit-autofill:focus,
+.light-theme main input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    -webkit-text-fill-color: #0f172a !important;
+}
+
+.light-theme main input::placeholder,
+.light-theme main textarea::placeholder {
+    color: #94a3b8 !important;
+}
+
+/* Card panels in main area */
+.light-theme main [class*="bg-white/[0.03]"],
+.light-theme main [class*="bg-white/[0.04]"],
+.light-theme main [class*="bg-white/[0.05]"],
+.light-theme main [class*="bg-white/[0.06]"],
+.light-theme main [class*="bg-white/[0.07]"],
+.light-theme main [class*="bg-white/[0.08]"],
+.light-theme main [class*="bg-white/[0.09]"] {
+    background-color: #f8fafc !important;
+    border-color: #e2e8f0 !important;
+}
+
+/* Right panel sliding panel in light area */
+.light-theme main [class*="shadow-\\[-20px"] {
+    background-color: #ffffff !important;
+    box-shadow: -20px 0 50px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Standard Nav active state in main area */
+.light-theme main [class*="bg-indigo-500/15"] {
+    background-color: #eef2ff !important;
+}
+
+.light-theme main [class*="text-indigo-300"] {
+    color: #4f46e5 !important;
+}
+
+.light-theme main [class*="text-indigo-400"] {
+    color: #4f46e5 !important;
+}
+
+/* User card at bottom of main if applicable */
+.light-theme main [class*="bg-white/[0.05]"],
+.light-theme main [class*="border-white/[0.06]"] {
+    background-color: #f1f5f9 !important;
+    border-color: #e2e8f0 !important;
+}
+
+/* Hover states in main area */
+.light-theme main [class*="hover:bg-white/[0.08]"]:hover,
+.light-theme main [class*="hover:bg-white/[0.07]"]:hover,
+.light-theme main [class*="hover:bg-white/[0.09]"]:hover {
+    background-color: #f1f5f9 !important;
+}
+
+/* Scrollbar light */
+.light-theme ::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+.light-theme ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+}
+
+.light-theme ::-webkit-scrollbar-thumb :hover {
+    background: #94a3b8;
+}
+
+/* ============================================================
+   AI STORY GENERATOR PANEL ANIMATIONS
+   ============================================================ */
+
+@keyframes aiPanelSlideVertical {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ai-panel-slide {
+    animation: aiPanelSlideVertical 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes aiSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.ai-spin {
+    animation: aiSpin 0.7s linear infinite;
+}
+
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Custom scrollbar for AI panel */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.3);
+    border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(99, 102, 241, 0.5);
+    border-radius: 4px;
+}
+
+/* ============================================================
+   STORY READER ENHANCEMENTS
+   ============================================================ */
+
+.font-lora {
+    font-family: 'Lora', serif !important;
+}
+
+@keyframes bookFlipOpen {
+    0% {
+        transform: perspective(2000px) rotateY(0deg);
+        transform-origin: left;
+    }
+
+    100% {
+        transform: perspective(2000px) rotateY(-180deg);
+        transform-origin: left;
+    }
+}
+
+@keyframes bookZoomIn {
+    0% {
+        transform: scale(1) translateY(0);
+    }
+
+    100% {
+        transform: scale(8) translateY(5%);
+    }
+}
+
+@keyframes overlayFadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes pageContentReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(10px) scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes contentEntrance {
+    from {
+        opacity: 0;
+        transform: scale(1.02);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.story-opening-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #faf9f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: overlayFadeOut 0.6s cubic-bezier(0.65, 0, 0.35, 1) 1.2s forwards;
+    pointer-events: none;
+    perspective: 3000px;
+}
+
+.book-animation {
+    width: 280px;
+    height: 400px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: bookZoomIn 0.8s cubic-bezier(0.65, 0, 0.35, 1) 0.8s forwards;
+}
+
+.book-cover {
+    position: absolute;
+    inset: 0;
+    background: #0f172a;
+    border-radius: 4px 12px 12px 4px;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+    transform-origin: left;
+    animation: bookFlipOpen 0.8s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.book-spine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 30px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.1) 20%, transparent 100%);
+    z-index: 5;
+    pointer-events: none;
+    border-radius: 4px 0 0 4px;
+}
+
+.book-pages {
+    position: absolute;
+    inset: 0;
+    background: #ffffff;
+    border-radius: 4px 12px 12px 4px;
+    box-shadow:
+        1px 1px 1px rgba(0, 0, 0, 0.1),
+        3px 3px 0 #fffcf0,
+        4px 4px 1px rgba(0, 0, 0, 0.05),
+        6px 6px 0 #fffcf0,
+        7px 7px 1px rgba(0, 0, 0, 0.05);
+    z-index: 1;
+    overflow: hidden;
+    padding: 35px;
+}
+
+.book-page-content {
+    opacity: 0;
+    animation: pageContentReveal 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s forwards;
+    font-family: 'Lora', serif;
+    color: #334155;
+}
+
+.reading-content-area {
+    animation: contentEntrance 0.8s cubic-bezier(0.22, 1, 0.36, 1) 1.2s backwards;
+}
+
+.progress-bar-container {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: transparent;
+    z-index: 45;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(to right, #6366f1, #a855f7);
+    transition: width 0.2s ease-out;
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+}
+
+.paper-texture {
+    background-color: #fffcf9;
+    background-image:
+        radial-gradient(at 0% 0%, rgba(255, 255, 255, 0.5) 0, transparent 50%),
+        radial-gradient(at 50% 0%, rgba(0, 0, 0, 0.02) 0, transparent 50%);
+}
+
+.story-body-text {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: #1a202c;
+    letter-spacing: -0.011em;
+}
+
+.story-body-text p {
+    margin-bottom: 2rem;
+}
+
+.story-body-text h2 {
+    font-family: 'Lora', serif;
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+/* ============================================================
+   NEW 3-COLUMN READER & HIGHLIGHTER (LEGACY)
+   ============================================================ */
+
+.reader-three-column-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr 340px;
+    gap: 2rem;
+    height: 100%;
+    overflow: hidden;
+}
+
+.reader-column {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.reader-scrollable {
+    flex: 1;
+    overflow-y: auto;
+    scrollbar-width: none; /* Firefox */
+}
+
+.reader-scrollable::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+.highlight-snippet {
+    position: relative;
+    padding: 1rem;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.highlight-snippet:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.highlight-color-dot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+}
+
+.highlight-color-dot.active {
+    transform: scale(1.2);
+    border-color: white;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.story-highlight {
+    cursor: pointer;
+    border-radius: 2px;
+    color: #1a202c !important; /* Force dark text on highlight background */
+}
+
+.story-highlight:hover {
+    filter: brightness(0.9);
+}
+
+.reader-content-card {
+    background: #13141a;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 2.5rem;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+/* ============================================================
+   FOCUSED READER & HIGHLIGHTS DRAWER
+   ============================================================ */
+
+.focused-reader-header {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.light-theme .focused-reader-header {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.dark-theme .focused-reader-header {
+    background-color: rgba(13, 13, 26, 0.8) !important;
+    border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+.story-body-text {
+    font-family: 'Lora', serif !important;
+    font-size: 1.2rem;
+    line-height: 2.2;
+    color: #1a202c;
+    letter-spacing: -0.003em;
+}
+
+.light-theme .story-body-text {
+    color: #1a202c;
+}
+
+.dark-theme .story-body-text {
+    color: #e2e8f0;
+}
+
+.highlights-drawer {
+    box-shadow: -10px 0 50px rgba(0, 0, 0, 0.05);
+}
+
+.custom-scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+}
+
+.custom-scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.custom-scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #e2e8f0;
+    border-radius: 10px;
+}
+
+.custom-scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: #cbd5e1;
+}
+
+/* ============================================================
+   GLITTER SHATTER BORDER EFFECT
+   ============================================================ */
+.glitter-shatter-wrapper {
+    position: relative;
+    background: #020617; /* Very dark blue/black base */
+    overflow: hidden;
+}
+
+/* Creates a dense, shattered glitter texture */
+.glitter-shatter-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: -50%;
+    background: 
+        repeating-conic-gradient(
+            from 0deg,
+            #0f172a 0deg,
+            #1e3a8a 2deg,
+            #000000 4deg,
+            #3b82f6 5deg,
+            #020617 7deg,
+            #1e1b4b 9deg,
+            #60a5fa 10deg,
+            #05050f 12deg
+        );
+    background-size: 25px 25px; /* Small facets to look like glitter */
+    animation: spinShatter 15s linear infinite;
+    z-index: 0;
+}
+
+/* Sharp glass-like shards overlaid to enhance the shatter effect */
+.glitter-shatter-wrapper::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+        repeating-linear-gradient(45deg, transparent 48%, rgba(96,165,250,0.6) 50%, transparent 52%),
+        repeating-linear-gradient(-45deg, transparent 48%, rgba(30,58,138,0.8) 50%, transparent 52%),
+        repeating-conic-gradient(from 15deg, transparent 0deg, rgba(255,255,255,0.3) 5deg, transparent 10deg);
+    background-size: 40px 40px, 40px 40px, 20px 20px;
+    opacity: 0.8;
+    mix-blend-mode: color-dodge;
+    pointer-events: none;
+    animation: shatterPulse 2.5s alternate infinite;
+    z-index: 0;
+}
+
+@keyframes spinShatter {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.1); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes shatterPulse {
+    0% { opacity: 0.3; }
+    100% { opacity: 0.8; }
+}

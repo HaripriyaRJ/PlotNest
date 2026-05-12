@@ -1,0 +1,131 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e7]: auto_awesome
+      - heading "PlotNest" [level=2] [ref=e8]
+    - navigation [ref=e9]:
+      - generic [ref=e10] [cursor=pointer]:
+        - generic [ref=e11]: grid_view
+        - generic [ref=e12]: Dashboard
+      - generic [ref=e13] [cursor=pointer]:
+        - generic [ref=e14]: library_books
+        - generic [ref=e15]: My Stories
+      - generic [ref=e16] [cursor=pointer]:
+        - generic [ref=e17]: bar_chart
+        - generic [ref=e18]: Analytics
+      - generic [ref=e19] [cursor=pointer]:
+        - generic [ref=e20]: payments
+        - generic [ref=e21]: Earnings
+      - generic [ref=e22] [cursor=pointer]:
+        - generic [ref=e23]: notifications
+        - generic [ref=e24]: Notifications
+      - generic [ref=e25] [cursor=pointer]:
+        - generic [ref=e26]: settings
+        - generic [ref=e27]: Settings
+    - generic [ref=e29]:
+      - img "Author" [ref=e31]
+      - generic [ref=e32]:
+        - paragraph [ref=e33]: Author Name
+        - paragraph [ref=e34]: Pro Writer
+  - main [ref=e35]:
+    - generic [ref=e36]:
+      - heading "New Story" [level=1] [ref=e38]
+      - generic [ref=e39]:
+        - generic [ref=e41]:
+          - generic [ref=e42]:
+            - generic [ref=e43]:
+              - paragraph [ref=e44]: Story Title
+              - generic [ref=e45] [cursor=pointer]:
+                - generic [ref=e47]: add_photo_alternate
+                - generic [ref=e48]: Upload Cover
+            - generic [ref=e49]:
+              - generic [ref=e50]:
+                - text: Story Title
+                - textbox "Enter your story title" [ref=e51]: Neon Odyssey
+              - generic [ref=e52]:
+                - text: Story Description
+                - generic [ref=e53]:
+                  - textbox "Write a brief description of your story..." [ref=e54]: A cybernetic journey through the last surviving city on Earth.
+                  - generic [ref=e55]: 62 / 200
+          - generic [ref=e56]:
+            - generic [ref=e57]:
+              - text: Genre
+              - generic [ref=e58]:
+                - combobox [ref=e59]:
+                  - option "Select genre"
+                  - option "Friendship"
+                  - option "Family"
+                  - option "Horror"
+                  - option "Thriller"
+                  - option "Mystery"
+                  - option "Fantasy"
+                  - option "Science fiction" [selected]
+                  - option "Adventure"
+                  - option "Comic"
+                  - option "Inspirational"
+                  - option "Moral Stories"
+                  - option "Mythology"
+                  - option "Historical"
+                  - option "Crime"
+                  - option "Suspense"
+                  - option "Kid's stories"
+                  - option "Teen stories"
+                  - option "Non-fiction"
+                  - option "Fiction"
+                  - option "Series stories"
+                  - option "Heartfelt stories"
+                - generic: expand_more
+            - generic [ref=e60]:
+              - text: Tags
+              - generic [ref=e61]:
+                - generic [ref=e62]:
+                  - text: Cyberpunk
+                  - button "close" [ref=e63]
+                - generic [ref=e64]:
+                  - text: Future
+                  - button "close" [ref=e65]
+                - generic [ref=e66]:
+                  - text: Tech
+                  - button "close" [ref=e67]
+                - button "add" [ref=e68]:
+                  - generic [ref=e69]: add
+          - generic [ref=e70]:
+            - generic [ref=e71]:
+              - generic [ref=e72]:
+                - generic [ref=e73]: Paragraph
+                - generic [ref=e74]: expand_more
+              - generic [ref=e75]:
+                - button "format_bold" [ref=e76]
+                - button "format_italic" [ref=e77]
+                - button "format_list_bulleted" [ref=e78]
+                - button "format_list_numbered" [ref=e79]
+                - button "link" [ref=e80]
+                - button "image" [ref=e81]
+                - button "movie" [ref=e82]
+                - button "more_horiz" [ref=e83]
+            - generic [ref=e84]:
+              - generic [ref=e85]: The rain in Sector 7 tasted like copper and ozone. Jax adjusted his HUD and stepped into the neon-lit alley.
+              - generic [ref=e86]: 20 Words
+        - generic [ref=e88]:
+          - heading "Story Settings" [level=3] [ref=e89]
+          - generic [ref=e90]:
+            - generic [ref=e91]:
+              - text: Visibility
+              - generic [ref=e92]:
+                - combobox [ref=e93]:
+                  - option "Public" [selected]
+                  - option "Private"
+                  - option "Unlisted"
+                - generic: expand_more
+            - generic [ref=e96]: Enable Comments
+            - button "Schedule Chapter" [ref=e99]
+            - paragraph [ref=e100]:
+              - text: Set a release date to automatically
+              - text: publish later.
+      - generic [ref=e101]:
+        - button "Save Draft" [active] [ref=e102]
+        - button "Publish Story" [ref=e103]
+```
